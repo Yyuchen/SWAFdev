@@ -1,0 +1,7 @@
+{
+  "name": "SWAFdev",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
