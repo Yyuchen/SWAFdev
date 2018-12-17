@@ -7,7 +7,7 @@ import { Platform } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-
+//test git
 export class HomePage {
 
   constructor(private bluetoothle : BluetoothLE, private platform : Platform){
