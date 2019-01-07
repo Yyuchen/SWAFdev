@@ -7,17 +7,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
-    <ion-item>  
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <button ion-button full (click)="loadImage()">Load Image</button>
+  <button ion-button full (click)="createThumbnail()">Create Thumbnail</button>
+  
+  <h2>Big Image ({{ bigSize }} MB)</h2>
+  <img [src]="bigImg">
+  <h2>Small Image ({{ smallSize }} MB)</h2>
+  <img [src]="smallImg">
 </ion-content>
