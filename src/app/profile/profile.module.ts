@@ -12,7 +12,6 @@ import { Camera } from '@ionic-native/camera/ngx';
     IonicModule,
     CommonModule,
     FormsModule,
-
     RouterModule.forChild([{ path: '', component: ProfilePage }])
   ],
   declarations: [ProfilePage]

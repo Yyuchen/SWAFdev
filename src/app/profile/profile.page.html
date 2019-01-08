@@ -7,11 +7,46 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button full (click)="loadImage()">Load Image</button>
-  <button ion-button full (click)="createThumbnail()">Create Thumbnail</button>
-  
-  <h2>Big Image ({{ bigSize }} MB)</h2>
-  <img [src]="bigImg">
-  <h2>Small Image ({{ smallSize }} MB)</h2>
-  <img [src]="smallImg">
+  <ion-card>
+    <ion-img (click)="createThumbnail()" [src]="smallImg"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title>
+        Hello Yuchen
+      </ion-card-title>
+      <ion-card-subtitle>ID:1234567890</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Genre</ion-label>
+        <ion-select [(ngModel)]="genre" interface="action-sheet">
+          <ion-select-option value="f">Femme</ion-select-option>
+          <ion-select-option value="h">Homme</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date de naissance</ion-label>
+        <ion-datetime display-format="MM DD YYYY" placeholder="MM/DD/YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Poids</ion-label>
+        <ion-input type="number" autocorrect="on" maxlength="3"></ion-input>
+        <p>KG</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Taille</ion-label>
+        <ion-input type="number"></ion-input>
+        <p>CM</p>
+      </ion-item>
+
+    
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>

@@ -8,14 +8,24 @@ import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['profile.page.scss']
 })
 export class ProfilePage {
+
   bigImg = null;
   bigSize = '0';
- 
   smallImg = null;
   smallSize = '0';
- 
-  constructor(public navCtrl: NavController, private camera: Camera) { }
- 
+  poids= [];
+  poidsUnity=[];
+  genre = "f";
+
+
+  constructor(public navCtrl: NavController, private camera: Camera) {
+    this.smallImg = "assets/icon/water.png"
+
+   }
+
+  //
+  //photo de profile
+  //
   loadImage() {
     const options: CameraOptions = {
       quality: 100,
@@ -28,16 +38,15 @@ export class ProfilePage {
     this.camera.getPicture(options).then(imageData => {
       let base64data = 'data:image/jpeg;base64,' + imageData;
       this.bigImg = base64data;
-      this.bigSize = this.getImageSize(this.bigImg);
     }, err => {
       console.log('gallery error: ', err);
     });
   }
  
   createThumbnail() {
-    this.generateFromImage(this.bigImg, 200, 200, 0.5, data => {
+    this.loadImage()
+    this.generateFromImage(this.bigImg, 100, 100, 1, data => {
       this.smallImg = data;
-      this.smallSize = this.getImageSize(this.smallImg);
     });
   }
  
@@ -73,9 +82,5 @@ export class ProfilePage {
     }
     image.src = img;
   }
- 
-  getImageSize(data_url) {
-    var head = 'data:image/jpeg;base64,';
-    return ((data_url.length - head.length) * 3 / 4 / (1024*1024)).toFixed(4);
-  }
+
 }
