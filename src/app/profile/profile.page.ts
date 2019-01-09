@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
-import {NgZone } from '@angular/core';
-import { callbackify } from 'util';
-
 
 @Component({
   selector: 'app-profile',
@@ -14,16 +11,16 @@ export class ProfilePage {
 
   bigImg = null;
   bigSize = '0';
-  smallImg =  "assets/icon/water.png";
+  smallImg = null;
   smallSize = '0';
   poids= [];
   poidsUnity=[];
   genre = "f";
-  zone =null;
 
 
-  constructor(public navCtrl: NavController, private camera: Camera, zone :NgZone) {
-    this.zone = zone;
+  constructor(public navCtrl: NavController, private camera: Camera) {
+    this.smallImg = "assets/icon/water.png"
+
    }
 
   //
@@ -38,7 +35,7 @@ export class ProfilePage {
       allowEdit: false
     };
  
-    this.camera.getPicture(options).then((imageData) => {
+    this.camera.getPicture(options).then(imageData => {
       let base64data = 'data:image/jpeg;base64,' + imageData;
       this.bigImg = base64data;
     }, err => {
@@ -50,9 +47,7 @@ export class ProfilePage {
     this.loadImage()
     this.generateFromImage(this.bigImg, 100, 100, 1, data => {
       this.smallImg = data;
-
     });
-    
   }
  
   generateFromImage(img, MAX_WIDTH: number = 700, MAX_HEIGHT: number = 700, quality: number = 1, callback) {
@@ -85,7 +80,6 @@ export class ProfilePage {
  
       callback(dataUrl)
     }
-  
     image.src = img;
   }
 

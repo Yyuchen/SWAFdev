@@ -17,7 +17,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-item>
+        <ion-item>
         <ion-label>Genre</ion-label>
         <ion-select [(ngModel)]="genre" interface="action-sheet">
           <ion-select-option value="f">Femme</ion-select-option>
@@ -40,7 +40,7 @@
         <ion-input type="number" autocorrect="on" maxlength="3" slot="end"></ion-input>
       </ion-item>
 
-      <ion-item>
+   <ion-item>
         <ion-label>Activité professionnel</ion-label>
         <ion-select [(ngModel)]="ActiPro" interface="action-sheet">
           <ion-select-option value="Bureau">Bureau</ion-select-option>
@@ -58,7 +58,8 @@
       </ion-item>
       <ion-label>Frequence(semaine)</ion-label>
       <ion-item>
-        <ion-range pin="true" min="0" max="10" color="primary" id="SportFrequence"></ion-range>
+        <ion-range pin="true" min="0" max="10" color="primary"  [(ngModel)]="SportFrequence"></ion-range>
+        <ion-badge>{{SportFrequence}}</ion-badge>
       </ion-item>
       <ion-label>Duree(min)</ion-label>
       <ion-item>
