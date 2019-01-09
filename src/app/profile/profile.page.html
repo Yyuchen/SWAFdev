@@ -63,7 +63,8 @@
       </ion-item>
       <ion-label>Duree(min)</ion-label>
       <ion-item>
-        <ion-range pin="true" min="0" max="120" color="primary" id="SportFrequence"></ion-range>
+        <ion-range pin="true" min="0" max="180" color="primary"  [(ngModel)]="DureeSprot"></ion-range>
+        <ion-badge> {{DureeSprot}}</ion-badge>
       </ion-item>
 
 
