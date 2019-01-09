@@ -1,12 +1,15 @@
 ion-img {
+  
+    overflow:hidden;
     -webkit-border-radius:50px;
     -moz-border-radius:50px;
     border-radius:50px;
-    position: relative;
-    left: 35%;
-    width: 130px;
-    height: 130px;
-    border:10ch;
-    border-block-end-style: groove; 
+    width:90px;
+    height:90px;
+
+    border-style: dotted solid double dashed;
+    border-color: cornflowerblue;
+    background-color: beige;
+    
   }
 

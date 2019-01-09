@@ -8,11 +8,10 @@
 
 <ion-content>
   <ion-card>
-    <ion-img (click)="createThumbnail()" [src]="smallImg"></ion-img>
-
     <ion-card-header>
+      <ion-img (click)="createThumbnail()" [src]="smallImg"></ion-img>
       <ion-card-title>
-        Hello Yuchen
+      Hello Master
       </ion-card-title>
       <ion-card-subtitle>ID:1234567890</ion-card-subtitle>
     </ion-card-header>
@@ -32,18 +31,40 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Poids</ion-label>
-        <ion-input type="number" autocorrect="on" maxlength="3"></ion-input>
-        <p>KG</p>
+        <ion-label>Poids(kg)</ion-label>
+        <ion-input type="number" autocorrect="on" maxlength="3" slot="end"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Taille</ion-label>
-        <ion-input type="number"></ion-input>
-        <p>CM</p>
+        <ion-label>Taille (cm)</ion-label>
+        <ion-input type="number" autocorrect="on" maxlength="3" slot="end"></ion-input>
       </ion-item>
 
-    
+      <ion-item>
+        <ion-label>Activité professionnel</ion-label>
+        <ion-select [(ngModel)]="ActiPro" interface="action-sheet">
+          <ion-select-option value="Bureau">Bureau</ion-select-option>
+          <ion-select-option value="Debout">Debout</ion-select-option>
+          <ion-select-option value="Sport">Sport</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Activités Sportives</ion-label>
+        <ion-select [(ngModel)]="ActiSport" interface="action-sheet">
+          <ion-select-option value="muscu">Muscu</ion-select-option>
+          <ion-select-option value="fitness">Fitness</ion-select-option>
+          <ion-select-option value="maraton">Maraton</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label>Frequence(semaine)</ion-label>
+      <ion-item>
+        <ion-range pin="true" min="0" max="10" color="primary" id="SportFrequence"></ion-range>
+      </ion-item>
+      <ion-label>Duree(min)</ion-label>
+      <ion-item>
+        <ion-range pin="true" min="0" max="120" color="primary" id="SportFrequence"></ion-range>
+      </ion-item>
+
 
     </ion-card-content>
 
