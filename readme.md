@@ -3,7 +3,10 @@
 2. Install ionic:  $ npm install -g ionic
 
 ## Installation du projet
-3. Téléchargé le packet .zip
+3. Téléchargé le packet .zip (visualise simple)
+3. Créer un nouveau dossier et aller dans ce dossier cvec le terminal
+$ git clone https://github.com/Yyuchen/SWAFdev.git
+
 4. Ouvrir le dossier avec l'editeur de code
 5. Ouvrir le terminal: Terminal -> New Terminal ou Ctrl + shift + ù
 6. Install le node_module: $ npm install
