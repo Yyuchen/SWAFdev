@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
-
+import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
@@ -11,16 +12,93 @@ export class ProfilePage {
 
   bigImg = null;
   bigSize = '0';
-  smallImg = null;
+  smallImg = "assets/icon/water.png";
   smallSize = '0';
-  poids= [];
-  poidsUnity=[];
-  genre = "f";
 
+ 
+  genre = "h";
+  dataNaissance = null;
+  poids= null;
+  taille = null;
+  actPro = null;
+  actSpo = null;
+  sportFrequence = null;
+  dureeSprot = null;
 
-  constructor(public navCtrl: NavController, private camera: Camera) {
-    this.smallImg = "assets/icon/water.png"
+  //Construction lors du démarrage du app
+  constructor(public navCtrl: NavController, private camera: Camera,private storage: Storage, public alertController: AlertController) {
+    //Récupérer les données sauvegardés 
+    storage.get('imgPro').then((val) => {
+      this.smallImg=val;
+    });
+    storage.get('genre').then((val)=>{
+      this.genre=val;
+    });
+    storage.get('dateN').then((val)=>{
+      this.dataNaissance=val;
+    });
+    storage.get('poids').then((val)=>{
+      this.poids=val;
+    });
+    storage.get('taille').then((val)=>{
+      this.taille=val;
+    });
+    storage.get('actPro').then((val)=>{
+      this.actPro=val;
+    });
+    storage.get('actSpo').then((val)=>{
+      this.actSpo=val;
+    });
+    storage.get('sportFrequence').then((val)=>{
+      this.sportFrequence=val;
+    });    
+    storage.get('dureeSprot').then((val)=>{
+      this.dureeSprot=val;
+    });
+  
+  }
 
+  //
+  // Sauvegarder les données lors du saisi
+  //
+   async setGenre(){
+     this.storage.set('genre',this.genre);
+   }
+
+   async setNaissance(){
+      this.storage.set('dateN',this.dataNaissance);
+   }
+
+   async setPoids(){
+     if(this.poids>=500){
+       this.poids=null;
+     }else{
+      this.storage.set('poids',this.poids);
+     }
+   }
+
+   async setTaille(){
+     if(this.taille>=200){
+       this.taille=null;
+     }else{
+      this.storage.set('taille',this.taille);
+     }
+   }
+
+   async setActPro(){
+    this.storage.set('actPro',this.actPro);
+   }
+ 
+   async setActSpo(){
+    this.storage.set('actSpo',this.actSpo);
+   }
+
+   async setSpoFrenq(){
+    this.storage.set('sportFrequence',this.sportFrequence);
+   }
+
+   async setSpoDuree(){
+    this.storage.set('dureeSprot',this.dureeSprot);
    }
 
   //
@@ -47,6 +125,7 @@ export class ProfilePage {
     this.loadImage()
     this.generateFromImage(this.bigImg, 100, 100, 1, data => {
       this.smallImg = data;
+      this.storage.set('imgPro',data);
     });
   }
  

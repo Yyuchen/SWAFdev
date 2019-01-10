@@ -85,5 +85,6 @@
     <plugin name="cordova-plugin-bluetooth-serial" spec="0.4.7" />
     <plugin name="cordova-plugin-bluetoothle" spec="4.4.4" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
+    <plugin name="cordova-sqlite-storage" spec="2.6.0" />
     <engine name="android" spec="7.1.4" />
 </widget>
