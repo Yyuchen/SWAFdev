@@ -51,7 +51,7 @@ export class HomePage {
 
 
 public lineChartData:Array<any> = [
-   {data: [0,65, 59, 80, 81, 56, 55, 40], label: 'Series A',pointRadius: 10,
+   {data: [0,65, 59, 80, 81, 56, 55, 40,5,10,3], label: 'Series A',pointRadius: 10,
    pointHoverRadius: 15}
   //  {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
   //  pointHoverRadius: 15},
