@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { ProfilePage } from './profile.page';
 import { Camera } from '@ionic-native/camera/ngx';
 
-
 @NgModule({
   imports: [
     IonicModule,
