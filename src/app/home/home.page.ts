@@ -30,7 +30,7 @@ export class HomePage {
   date:null
 }
 
-
+objectif=null;
 
 //param;
   constructor(
@@ -53,6 +53,7 @@ export class HomePage {
       }else console.log("not active");
 
   })
+
   // this.route.params.subscribe(params => {
   //     this.consomation.autre= params['this.drinks'];
   // });
@@ -68,7 +69,21 @@ setConsomation(){
  
 }
 
+calculateObjectif(){
+  var poids;
+   this.storage.get('poids').then((val)=>{
+    poids= parseInt(val,10);
+      //formule de calcule d'eau
+  var temp= poids - 20;
+  temp=temp*15;
+  temp=temp+1500;
+  temp=temp-1000;
+  temp=temp/1000;
+  this.objectif=temp;
 
+  });
+  this.storage.set('objectif',this.objectif);
+}
 
 //
 // Graphique
@@ -78,9 +93,9 @@ setConsomation(){
 
 public lineChartData:Array<any> = [
    {data: [0,65, 59, 80, 81, 56, 55, 40,5,10,3], label: 'Series A',pointRadius: 10,
+   pointHoverRadius: 15},
+   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
    pointHoverRadius: 15}
-  //  {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
-  //  pointHoverRadius: 15},
   //  {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C',pointRadius: 10,
   //  pointHoverRadius: 15}
  ];
@@ -97,14 +112,14 @@ public lineChartData:Array<any> = [
      pointHoverBackgroundColor: '#fff',
      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
    },
-  //  { // dark grey
-  //    backgroundColor: 'rgba(77,83,96,0.2)',
-  //    borderColor: 'rgba(77,83,96,1)',
-  //    pointBackgroundColor: 'rgba(77,83,96,1)',
-  //    pointBorderColor: '#fff',
-  //    pointHoverBackgroundColor: '#fff',
-  //    pointHoverBorderColor: 'rgba(77,83,96,1)'
-  //  },
+   { // dark grey
+     backgroundColor: 'rgba(77,83,96,0.2)',
+     borderColor: 'rgba(77,83,96,1)',
+     pointBackgroundColor: 'rgba(77,83,96,1)',
+     pointBorderColor: '#fff',
+     pointHoverBackgroundColor: '#fff',
+     pointHoverBorderColor: 'rgba(77,83,96,1)'
+   },
   //  { // grey
   //    backgroundColor: 'rgba(148,159,177,0.2)',
   //    borderColor: 'rgba(148,159,177,1)',

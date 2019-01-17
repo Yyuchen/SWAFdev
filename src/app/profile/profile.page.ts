@@ -25,7 +25,7 @@ export class ProfilePage {
   actSpo = null;
   sportFrequence = null;
   dureeSprot = null;
-  username = null;
+  username = "Username";
 
   drinks={
     the:false,
