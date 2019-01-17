@@ -22,7 +22,7 @@
           [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)"></canvas>
       </div>
-      <ion-button size="small" shape="round" fill="outline" color = "primary">+</ion-button> <ion-button size="small" color = "primary" shape="round" fill="outline">-</ion-button>
+      <ion-button size="small" shape="round" fill="outline" color = "primary" (click)="setConsomation()">+</ion-button> <ion-button size="small" color = "primary" shape="round" fill="outline">-</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card>

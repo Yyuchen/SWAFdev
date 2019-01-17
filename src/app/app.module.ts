@@ -28,4 +28,10 @@ import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx'
   bootstrap: [AppComponent]
   
 })
-export class AppModule {}
+
+
+
+export class AppModule {
+
+
+}

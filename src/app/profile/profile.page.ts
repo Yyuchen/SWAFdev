@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
@@ -24,7 +25,15 @@ export class ProfilePage {
   actSpo = null;
   sportFrequence = null;
   dureeSprot = null;
+  username = null;
 
+  drinks={
+    the:false,
+    jus:false,
+   smooth:false,
+   soda:false,
+   b_énergétique:false
+   };
   //Construction lors du démarrage du app
   constructor(public navCtrl: NavController, private camera: Camera,private storage: Storage, public alertController: AlertController) {
     //Récupérer les données sauvegardés 
@@ -54,6 +63,9 @@ export class ProfilePage {
     });    
     storage.get('dureeSprot').then((val)=>{
       this.dureeSprot=val;
+    });
+    storage.get('username').then((val)=>{
+      this.username=val;
     });
   
   }
@@ -160,6 +172,38 @@ export class ProfilePage {
       callback(dataUrl)
     }
     image.src = img;
+  }
+
+
+  async presentPrompt() {
+    const  alert = await this.alertController.create({
+      header: 'Prompt!',
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'Username'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        }
+          , {
+            text: 'Valider',
+            role:'ok',
+            handler: data => {
+              this.storage.set('username',data.username);
+              this.username = data.username;
+            }
+          }   
+      ]
+    });
+    
+    await alert.present();
   }
 
 }

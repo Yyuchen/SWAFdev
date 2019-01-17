@@ -3,8 +3,8 @@ import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
 import { Platform } from '@ionic/angular';
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
-
+import { Storage } from '@ionic/storage';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,11 +24,21 @@ export class HomePage {
    "restoreKey": "bluetoothleplugin"
  };
 
+ consomation={
+  autre:null,
+  eau:null,
+  date:null
+}
+
+
+
 //param;
   constructor(
     private bluetoothle : BluetoothLE, 
     private platform : Platform,
-    public navCtrl      : NavController){
+    public navCtrl      : NavController,
+    private storage: Storage,
+    private route: ActivatedRoute){
     this.platform.ready().then((readySource)=>{
       console.log('Platform ready from: ', readySource);
       this.bluetoothle.initialize().then(ble=>{
@@ -43,7 +53,23 @@ export class HomePage {
       }else console.log("not active");
 
   })
+  // this.route.params.subscribe(params => {
+  //     this.consomation.autre= params['this.drinks'];
+  // });
+
 }
+
+setConsomation(){
+  this.storage.get('selectedDrinks').then((val)=>{
+    this.consomation.autre=val;
+    console.log("home var: ",val);
+    console.log("home conso: ",this.consomation.autre);
+  });
+ 
+}
+
+
+
 //
 // Graphique
 //

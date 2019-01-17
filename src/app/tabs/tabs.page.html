@@ -3,11 +3,12 @@
   <ion-tab tab="home">
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="about">
-    <ion-router-outlet name="about"></ion-router-outlet>
-  </ion-tab>
+
   <ion-tab tab="profile">
     <ion-router-outlet name="profile"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab tab="about">
+    <ion-router-outlet name="about"></ion-router-outlet>
   </ion-tab>
 
   <ion-tab-bar slot="bottom">
@@ -17,15 +18,16 @@
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="about" href="/tabs/(about:about)">
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>About</ion-label>
-    </ion-tab-button>
-
     <ion-tab-button tab="profile" href="/tabs/(profile:profile)">
       <ion-icon name="person"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-tab-button>
+    <ion-tab-button tab="about" href="/tabs/(about:about)">
+      <ion-icon name="logo-game-controller-b"></ion-icon>
+      <ion-label>Jeux</ion-label>
+    </ion-tab-button>
+
+
 
   </ion-tab-bar>
 
