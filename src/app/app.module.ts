@@ -13,7 +13,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx'
 
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

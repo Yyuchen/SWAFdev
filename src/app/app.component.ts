@@ -106,7 +106,7 @@ export class AppComponent {
       ]
     });
 
-    await alert.present();
+     await alert.present();
   }
 
 }

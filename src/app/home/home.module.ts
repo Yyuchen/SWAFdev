@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
 import { ChartsModule } from 'ng2-charts/charts/charts';
 
+
 @NgModule({
   imports: [
     IonicModule,

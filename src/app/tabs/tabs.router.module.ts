@@ -5,6 +5,8 @@ import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { AboutPage } from '../about/about.page';
 import { ProfilePage } from '../profile/profile.page';
+import { NewsPage } from '../news/news.page';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   {
@@ -30,6 +32,11 @@ const routes: Routes = [
         path: 'profile',
         outlet: 'profile',
         component: ProfilePage
+      },
+      {
+        path: 'news',
+        outlet: 'news',
+        component: NewsPage
       }
     ]
   },

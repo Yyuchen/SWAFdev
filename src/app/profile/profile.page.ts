@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss']
 })
-export class ProfilePage {
+export class ProfilePage  implements OnInit {
 
   bigImg = null;
   bigSize = '0';
@@ -70,12 +70,17 @@ export class ProfilePage {
   
   }
 
+  ngOnInit() {
+  }
+
   //
   // Sauvegarder les données lors du saisi
   //
    async setGenre(){
      this.storage.set('genre',this.genre);
    }
+
+
 
    async setNaissance(){
       this.storage.set('dateN',this.dataNaissance);
@@ -203,7 +208,7 @@ export class ProfilePage {
       ]
     });
     
-    await alert.present();
+   await alert.present();
   }
 
 }
