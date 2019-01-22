@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content>
+        </ion-refresher-content>
+      </ion-refresher> -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>
@@ -23,6 +26,7 @@
           &nbsp; Consommation Mensuel :</ion-card-title>
     <ion-card-content>
         <ion-badge (click)="changeChart()">Type: {{lineChartType}}</ion-badge>
+      
       <div style="display: block;">
         <canvas baseChart width="100" height="100" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
           [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" 
@@ -48,4 +52,5 @@
           <ion-icon name="battery-full"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+ 
 </ion-content>

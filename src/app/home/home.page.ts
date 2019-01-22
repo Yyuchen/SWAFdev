@@ -28,7 +28,7 @@ export class HomePage {
   eau:null,
   date:null
 }
-
+pointClicked=null;
 objectif=null;
 
 //param;
@@ -96,7 +96,7 @@ calculateObjectif(){
 
 
 public lineChartData:Array<any> = [
-   {data: [0,65, 59, 80, 81, 56, 55, 40,5,10,3,],pointRadius: 10,
+   {data: [7, 65, 59, 80, 81, 56, 55, 40, 5, 10, 3, 40],pointRadius: 10,
    pointHoverRadius: 15}
   //  {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
   //  pointHoverRadius: 15}
@@ -107,6 +107,7 @@ public lineChartData:Array<any> = [
  public lineChartOptions:any = {
    responsive: true
  };
+
  public lineChartColors:Array<any> = [
    { // blue A line
      backgroundColor: 'rgba(51, 204, 255,0.2)',
@@ -115,6 +116,7 @@ public lineChartData:Array<any> = [
      pointBorderColor: '#fff',
      pointHoverBackgroundColor: '#fff',
      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+
    }
   //  { // dark grey
   //    backgroundColor: 'rgba(77,83,96,0.2)',
@@ -135,6 +137,7 @@ public lineChartData:Array<any> = [
  ];
  public lineChartLegend:boolean = false;
  public lineChartType:string = 'line';
+ 
 
 //  public randomize():void {
 //    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
@@ -149,7 +152,8 @@ public lineChartData:Array<any> = [
 
  // events
  public chartClicked(e:any):void {
-   console.log("clicked: "+e);
+   console.log("clicked: "+e.active[0]._index);
+   this.storage.set('moisClicked',e.active[0]._index);
    this.router.navigate(['/histoJour']);
  }
 
@@ -162,5 +166,8 @@ public changeChart(){
   this.lineChartType = this.lineChartType ==='line'? 'bar':'line';
 }
 
+public doRefresh($event){
+  
+}
 
 }

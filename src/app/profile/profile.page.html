@@ -6,6 +6,11 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-refresher slot="hide" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="Actualisation...">
+      </ion-refresher-content>
+    </ion-refresher>
+
 <ion-content>
   <ion-card>
     <ion-card-header>

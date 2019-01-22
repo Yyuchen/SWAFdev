@@ -211,4 +211,12 @@ export class ProfilePage  implements OnInit {
    await alert.present();
   }
 
+// public doRefresh($event){
+//   setTimeout(() => {
+//     console.log('Async operation has ended');
+//     event.target.complete();
+//   }, 2000);
+  
+// }
+
 }

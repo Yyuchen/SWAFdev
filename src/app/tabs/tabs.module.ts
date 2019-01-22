@@ -10,8 +10,7 @@ import { TabsPage } from './tabs.page';
 import { ProfilePageModule } from '../profile/profile.module';
 import { AboutPageModule } from '../about/about.module';
 import { HomePageModule } from '../home/home.module';
-import { NewsPageModule } from '../news/news.module';
-
+import { ArticlePageModule } from '../article/article.module';
 import { from } from 'rxjs';
 
 @NgModule({
@@ -22,8 +21,8 @@ import { from } from 'rxjs';
     TabsPageRoutingModule,
     HomePageModule,
     AboutPageModule,
-    NewsPageModule,
-    ProfilePageModule
+    ProfilePageModule,
+    ArticlePageModule
   ],
   declarations: [TabsPage]
 })

@@ -12,7 +12,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-
+  colect:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -20,6 +20,7 @@ export class AppComponent {
     public alertController: AlertController,
     private storage: Storage
   ) {
+    this.colect=true;
     this.initializeApp();
     this.presentAlertCheckbox();
   }
@@ -76,6 +77,7 @@ export class AppComponent {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
+            this.colect=false;
             console.log('Confirm Cancel');
           }
         }, {
@@ -83,7 +85,7 @@ export class AppComponent {
           role:"valide",
           handler: data => {
             //data = value2,value3
-            console.log("data: "+ data);
+            this.colect=false;
             this.storage.set('selectedDrinks',data);
           //     if(data.cafe.checked){
           //       this.drinks.cafe=true;

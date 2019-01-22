@@ -10,6 +10,9 @@
   <ion-tab tab="about">
     <ion-router-outlet name="about"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="article">
+    <ion-router-outlet name="article"></ion-router-outlet>
+  </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
@@ -26,8 +29,7 @@
       <ion-icon name="logo-game-controller-b"></ion-icon>
       <ion-label>Jeux</ion-label>
     </ion-tab-button>
-
-    <ion-tab-button tab="news" href="/tabs/(news:news)">
+    <ion-tab-button tab="article" href="/tabs/(article:article)">
       <ion-icon name="wifi"></ion-icon>
       <ion-label>Article</ion-label>
     </ion-tab-button>
