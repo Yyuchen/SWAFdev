@@ -5,6 +5,10 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { HttpClient } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -38,6 +42,8 @@ objectif=null;
     public navCtrl      : NavController,
     private storage: Storage,
     private router: Router,
+    private fb: Facebook,
+    private http: HttpClient,
     private route: ActivatedRoute){
       
      this.calculateObjectif();
@@ -56,11 +62,31 @@ objectif=null;
       }else console.log("not active");
 
   })
+}
 
-
-  // this.route.params.subscribe(params => {
-  //     this.consomation.autre= params['this.drinks'];
-  // });
+user:any={}
+loginFab(){
+  this.fb.login(['public_profile', 'email'])
+  .then((res: FacebookLoginResponse) => {
+    if(res.status === 'connected'){
+      console.log('connected');
+      // this.user.img = 'https://graph.facebook.com/'+res.authResponse.userID+'/picture?type=square'; 
+      
+      // this.getData(res.authResponse.accessToken); 
+    }else{
+      alert('Login failed');
+    }
+     console.log('Logged into Facebook!', res)
+    })
+  .catch(e => console.log('Error logging into Facebook', e));
+}
+userdata:String;
+getData(access_token:String){
+  let url = 'https://graph.facebook.com/me?fields=id,name,first_name,last_name,email&acceess_token='+access_token;
+  this.http.get(url).subscribe(data=>{
+    this.userdata = JSON.stringify(data);
+    console.log(data)
+  })
 
 }
 

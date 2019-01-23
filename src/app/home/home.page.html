@@ -34,23 +34,12 @@
       </div>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Anecdote :</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      Nous ne vous apprenons rien de neuf, nous direz-vous, mais réfléchissez un instant à ce qui est encore gratuit à
-      l’heure actuelle… Pas grand-chose, n’est-ce pas !? L’eau de pluie tombe quant à elle du ciel sans réclamer de
-      facture, et parfois même en grandes quantités. La seule chose qu’il vous reste à faire est de la récolter et de
-      l’utiliser à votre guise.
-
-    </ion-card-content>
-  </ion-card>
+ 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button>
           <ion-icon name="battery-full"></ion-icon>
       </ion-fab-button>
     </ion-fab>
- 
+    <ion-button (click)="loginFab()">Login test</ion-button>
+  <p>userdata : {{userdata}}</p>
 </ion-content>

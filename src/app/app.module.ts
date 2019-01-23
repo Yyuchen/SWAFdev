@@ -11,14 +11,22 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx'
-
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot()],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,  
+    IonicStorageModule.forRoot(),
+    HttpClientModule
+  ],
   providers: [
     StatusBar,
+    Facebook,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
