@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Ble
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="scan()">
+                Scan
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let device of devices" (click)="open(device)">
+            <!--<h1><a href="/tabs/(connect:connect)">Click Me</a></h1>-->
+            <h1><a href="/(connect:connect)">Click Me</a></h1>
+            <h2>{{ device.name || 'Unnamed' }}</h2>
+            <p>{{ device.id }}</p>
+            <p>RSSI: {{ device.rssi }}</p>
+        </button>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <p>{{ statusMessage }}</p>
+    </ion-toolbar>
+</ion-footer>
