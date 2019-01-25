@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-import { AboutPage } from '../about/about.page';
+import { JeuxPage } from '../jeux/jeux.page';
 import { ProfilePage } from '../profile/profile.page';
 import { ArticlePage } from '../article/article.page';
 import { from } from 'rxjs';
+import { WellcomePage } from '../wellcome/wellcome.page'
 
 
 const routes: Routes = [
@@ -30,9 +31,9 @@ const routes: Routes = [
         component: ArticlePage
       },
       {
-        path: 'about',
-        outlet: 'about',
-        component: AboutPage
+        path: 'jeux',
+        outlet: 'jeux',
+        component: JeuxPage
       },
       {
         path: 'profile',

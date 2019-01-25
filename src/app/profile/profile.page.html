@@ -16,7 +16,9 @@
     <ion-card-header>
       <ion-img (click)="createThumbnail()" [src]="smallImg"></ion-img>
       <ion-card-title>
-       {{username}}
+        <ion-button  (click)="loginFab()"><ion-icon name="logo-facebook"></ion-icon>Login</ion-button>
+
+       <br>{{username}}
       <ion-icon  name="build" style="zoom:0.5;" (click)="presentPrompt()"></ion-icon>
       </ion-card-title>
       <ion-card-subtitle>ID:1234567890</ion-card-subtitle>

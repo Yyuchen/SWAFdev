@@ -8,19 +8,20 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { ProfilePageModule } from '../profile/profile.module';
-import { AboutPageModule } from '../about/about.module';
+import { JeuxPageModule } from '../jeux/jeux.module';
 import { HomePageModule } from '../home/home.module';
 import { ArticlePageModule } from '../article/article.module';
 import { from } from 'rxjs';
-
+import { WellcomePage } from '../wellcome/wellcome.page'
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
+   // WellcomePage,
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,
-    AboutPageModule,
+    JeuxPageModule,
     ProfilePageModule,
     ArticlePageModule
   ],

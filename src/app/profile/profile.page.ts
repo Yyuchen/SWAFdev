@@ -3,7 +3,8 @@ import { NavController } from '@ionic/angular';
 import { Camera , CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
-
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
@@ -35,7 +36,12 @@ export class ProfilePage  implements OnInit {
    b_énergétique:false
    };
   //Construction lors du démarrage du app
-  constructor(public navCtrl: NavController, private camera: Camera,private storage: Storage, public alertController: AlertController) {
+  constructor(public navCtrl: NavController, 
+    private camera: Camera,
+    private storage: Storage,
+    private http: HttpClient, 
+    public alertController: AlertController,
+    private fb: Facebook) {
     //Récupérer les données sauvegardés 
     storage.get('imgPro').then((val) => {
       this.smallImg=val;
@@ -210,6 +216,34 @@ export class ProfilePage  implements OnInit {
     
    await alert.present();
   }
+
+
+  
+user:any={}
+loginFab(){
+  this.fb.login(['public_profile', 'email'])
+  .then((res: FacebookLoginResponse) => {
+    if(res.status === 'connected'){
+      console.log('connected');
+      // this.user.img = 'https://graph.facebook.com/'+res.authResponse.userID+'/picture?type=square'; 
+      
+      // this.getData(res.authResponse.accessToken); 
+    }else{
+      alert('Login failed');
+    }
+     console.log('Logged into Facebook!', res)
+    })
+  .catch(e => console.log('Error logging into Facebook', e));
+}
+userdata:String;
+getData(access_token:String){
+  let url = 'https://graph.facebook.com/me?fields=id,name,first_name,last_name,email&acceess_token='+access_token;
+  this.http.get(url).subscribe(data=>{
+    this.userdata = JSON.stringify(data);
+    console.log(data)
+  })
+
+}
 
 // public doRefresh($event){
 //   setTimeout(() => {
