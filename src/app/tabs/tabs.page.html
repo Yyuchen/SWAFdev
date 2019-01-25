@@ -13,6 +13,9 @@
   <ion-tab tab="article">
     <ion-router-outlet name="article"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="ble">
+    <ion-router-outlet name="ble"></ion-router-outlet>
+  </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
@@ -32,6 +35,10 @@
     <ion-tab-button tab="article" href="/tabs/(article:article)">
       <ion-icon name="wifi"></ion-icon>
       <ion-label>Article</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="ble" href="/tabs/(ble:ble)">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Ble</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>

@@ -1,4 +1,3 @@
-import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
 import { Platform } from '@ionic/angular';
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
@@ -37,7 +36,6 @@ objectif=null;
 
 //param;
   constructor(
-    private bluetoothle : BluetoothLE, 
     private platform : Platform,
     public navCtrl      : NavController,
     private storage: Storage,
@@ -47,21 +45,6 @@ objectif=null;
     private route: ActivatedRoute){
       
      this.calculateObjectif();
-    this.platform.ready().then((readySource)=>{
- 
-      console.log('Platform ready from: ', readySource);
-      this.bluetoothle.initialize().then(ble=>{
-        console.log('ble: ', ble.status) // logs 'enabled'
-      })
-      
-      if(bluetoothle.isEnabled()){
-       // bluetoothle.connect()
-        
-        console.log("actived");
-
-      }else console.log("not active");
-
-  })
 }
 
 user:any={}

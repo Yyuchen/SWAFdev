@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
 import { ChartsModule } from 'ng2-charts/charts/charts';
 
 
@@ -17,6 +16,6 @@ import { ChartsModule } from 'ng2-charts/charts/charts';
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],
   declarations: [HomePage],
-  providers:[BluetoothLE]
+  providers:[]
 })
 export class HomePageModule {}

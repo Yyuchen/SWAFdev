@@ -7,6 +7,7 @@ import { AboutPage } from '../about/about.page';
 import { ProfilePage } from '../profile/profile.page';
 import { ArticlePage } from '../article/article.page';
 import { from } from 'rxjs';
+import {BlePage} from "../ble/ble.page";
 
 
 const routes: Routes = [
@@ -38,6 +39,11 @@ const routes: Routes = [
         path: 'profile',
         outlet: 'profile',
         component: ProfilePage
+      },
+      {
+        path: 'ble',
+        outlet: 'ble',
+        component: BlePage
       }
     ]
   },
