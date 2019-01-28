@@ -12,12 +12,11 @@ import { JeuxPageModule } from '../jeux/jeux.module';
 import { HomePageModule } from '../home/home.module';
 import { ArticlePageModule } from '../article/article.module';
 import { from } from 'rxjs';
-import { WellcomePage } from '../wellcome/wellcome.page'
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-   // WellcomePage,
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,

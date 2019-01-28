@@ -7,7 +7,7 @@ import { JeuxPage } from '../jeux/jeux.page';
 import { ProfilePage } from '../profile/profile.page';
 import { ArticlePage } from '../article/article.page';
 import { from } from 'rxjs';
-import { WellcomePage } from '../wellcome/wellcome.page'
+
 
 
 const routes: Routes = [

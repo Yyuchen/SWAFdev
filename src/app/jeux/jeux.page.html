@@ -4,4 +4,466 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content fullscreen>
+  <ion-slides scrollbar="true" [options]="option1">
+    <ion-slide class="conA">
+      <ion-content >
+        <h1>
+          Question 1:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+        </ion-fab>
+        <h5>
+          Combien de Litres d’eau les aliments
+          que nous mangeons apportent à notre corps ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q1"  (ionSelect)="Validation1()" >
+            <ion-item>
+              <ion-label>500 mL</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>1.50 L</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>1 L</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>25 cL</ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q1Bool}}
+       
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 2:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Combien de Litres d’eau les aliments
+          que nous mangeons apportent à notre corps ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q2"  (ionSelect)="Validation2()">
+            <ion-item>
+              <ion-label>Oui</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Non</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q2Bool}}
+   
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 3:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Les sportifs ne doivent pas boire avant et pendant l’effort,
+          car cela risque de les alourdir et de diminuer leur performance.
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q3"  (ionSelect)="Validation3()">
+            <ion-item>
+              <ion-label>Vrai</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Faux</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q3Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 4:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Les besoins en eau diminuent avec l’âge ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q4"  (ionSelect)="Validation4()"> 
+            <ion-item>
+              <ion-label>Vrai</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Faux</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q4Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 5:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Quels sont les apports de l’eau qui
+          sont important pour un sportif ou pour tout individu?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q5"  (ionSelect)="Validation5()">
+            <ion-item>
+              <ion-label>Les protéines </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Les glucides</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Les glucides</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Les sels minéraux (ions calcium, ions sodium, ions magnésium ...etc) et les oligo-éléments
+              </ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Les lipides</ion-label>
+              <ion-radio slot="start" value="5"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q5Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 6:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Qu’est-ce que l’hyper hydratation ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q6"  (ionSelect)="Validation6()">
+            <ion-item>
+              <ion-label>Quand un individu a trop soif </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Lorsque la consommation en eau de l’individu est insuffisante</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Lorsque la consommation en eau de l’individu dépasse le besoin en eau de son corps</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Lorsque la consommation en eau est irrégulière
+              </ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q6Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 7:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Quels sont les paramètres q
+          ui permettent de savoir votre quantité d’eau à ingérer par jour ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q7"  (ionSelect)="Validation7()">
+            <ion-item>
+              <ion-label>Votre âge </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Votre poid, taille et vos activités sportives</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Cela dépend des jours </ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>On doit tous boire 1,5L d’eau
+                et manger 5 fruits et légumes par jour comme indiqué à la télé
+              </ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q7Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 8:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Après un repas, est-il vraiment dangereux de se jeter à l'eau ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q8"  (ionSelect)="Validation8()">
+            <ion-item>
+              <ion-label>Oui, à cause du risque d'hydrocution
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label> Oui, à cause de la digestion
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Cela dépend surtout de la température de l´eau </ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Non, c'est une rumeur
+              </ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q8Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 9:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Pourquoi ne doit-on pas recongeler un produit congelé ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q9"  (ionSelect)="Validation9()">
+            <ion-item>
+              <ion-label>A cause du développement de bactéries
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>A cause du goût qui est dégradé
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Parcequ'un produit recongelé ne se conserve plus aussi bien</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q9Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 10:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Quelle quantité de pesticides avalons-nous chaque année dans nos aliments ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q10"  (ionSelect)="Validation10()">
+            <ion-item>
+              <ion-label>100 g
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>1 Kg
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>1,5 Kg</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Il n'y a pas de pesticides dans nos aliments</ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q10Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 11:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Combien de bactéries avons-nous dans notre corps ? </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q11"  (ionSelect)="Validation11()">
+            <ion-item>
+              <ion-label>Des centaines
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Des milliers
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Des millions</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Des milliards</ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q11Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 12:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          En plongée sous-marine,
+          pourquoi doit-on respecter les paliers de décompression ?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q12"  (ionSelect)="Validation12()">
+            <ion-item>
+              <ion-label>A cause de l´azote (principalement)
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>A cause de l'oxygène
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>A cause de l'hydrogène</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>A cause de l'ivresse des profondeurs</ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q12Bool}}
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <h1>
+          Question 13:
+        </h1>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
+    </ion-fab>
+    <h5>
+          Les pommes de terre peuvent tuer?
+        </h5>
+         
+        <ion-list>
+          <ion-radio-group [(ngModel)]="Resp.Q13"  (ionSelect)="Validation13()">
+            <ion-item>
+              <ion-label>Vrai
+              </ion-label>
+              <ion-radio slot="start" value="1 "></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Faux
+              </ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>ça dépend des variétés</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <br>{{Resp.Q13Bool}}
+      </ion-content>
+    </ion-slide>
+
+    <ion-slide>
+        <ion-content>
+         <ion-img src="/assets/felicitations.png"></ion-img>
+        
+        </ion-content>
+      </ion-slide>
+  </ion-slides>
+
+</ion-content>
