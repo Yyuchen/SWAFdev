@@ -306,6 +306,7 @@ export class HomePage {
             for (let i = 0; i < this.consomation.autre.length; i++) {
             this.varConso = this.varConso + parseFloat(this.consomation.autre[i]);
           }
+          this.calculateObjectif();
           }
         }
       ]

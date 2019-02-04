@@ -49,7 +49,6 @@ export class JeuxPage implements OnInit {
   };
 
   Validation1(){
-    console.log("aaaaaaaaaaaa");
     if(this.Resp.Q1 == 3 ){
       this.ComptResultat++;
       this.Resp.Q1Bool= " Félicitation, vous avez eu la bonne réponse !";
@@ -150,6 +149,7 @@ export class JeuxPage implements OnInit {
     Validation13(){
     if(this.Resp.Q13 == 1 ){
       this.ComptResultat++;
+      this.ComptResultat=this.ComptResultat*1000;
       this.Resp.Q13Bool= " Félicitation, vous avez eu la bonne réponse ! Crue, la pomme de terre contient une substance très toxique (la solanine) dont la concentration augmente avec l'exposition à la lumière (multipliée par 4 toutes les 24 heures à 16°C). Cette substance est facilement repérable grâce à la couleur verte de la peau.";
     }else{
       this.Resp.Q13Bool= " Faux, la bonne réponse est : Vrai. (si elles sont consommées crues). Crue, la pomme de terre contient une substance très toxique (la solanine) dont la concentration augmente avec l'exposition à la lumière (multipliée par 4 toutes les 24 heures à 16°C). Cette substance est facilement repérable grâce à la couleur verte de la peau.";

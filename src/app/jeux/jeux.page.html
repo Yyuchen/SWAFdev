@@ -7,7 +7,7 @@
 <ion-content fullscreen>
   <ion-slides scrollbar="true" [options]="option1">
     <ion-slide class="conA">
-      <ion-content >
+      <ion-content (click)="Validation1()">
         <h1>
           Question 1:
         </h1>
@@ -20,22 +20,22 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q1"   >
+          <ion-radio-group [(ngModel)]="Resp.Q1"  >
             <ion-item>
-              <ion-label>500 mL</ion-label>
-              <ion-radio slot="start" value="1" (ionSelect)="Validation1()"></ion-radio>
+              <ion-label text-wrap>500 mL</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1.50 L</ion-label>
-              <ion-radio slot="start" value="2" (ionSelect)="Validation1()"></ion-radio>
+              <ion-label text-wrap>1.50 L</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1 L</ion-label>
-              <ion-radio slot="start" value="3"(ionSelect)="Validation1()"></ion-radio>
+              <ion-label text-wrap>1 L</ion-label>
+              <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>25 cL</ion-label>
-              <ion-radio slot="start" value="4"(ionSelect)="Validation1()"></ion-radio>
+              <ion-label text-wrap>25 cL</ion-label>
+              <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-list>
@@ -44,7 +44,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation2()">
         <h1>
           Question 2:
         </h1>
@@ -56,13 +56,13 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q2"  (ionSelect)="Validation2()">
+          <ion-radio-group [(ngModel)]="Resp.Q2">
             <ion-item>
-              <ion-label>Oui</ion-label>
+              <ion-label text-wrap>Oui</ion-label>
               <ion-radio slot="start" value="1"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Non</ion-label>
+              <ion-label text-wrap>Non</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -72,7 +72,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation3()">
         <h1>
           Question 3:
         </h1>
@@ -85,13 +85,13 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q3"  (ionSelect)="Validation3()">
+          <ion-radio-group [(ngModel)]="Resp.Q3">
             <ion-item>
-              <ion-label>Vrai</ion-label>
+              <ion-label text-wrap>Vrai</ion-label>
               <ion-radio slot="start" value="1"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Faux</ion-label>
+              <ion-label text-wrap>Faux</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -100,7 +100,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation4()">
         <h1>
           Question 4:
         </h1>
@@ -112,13 +112,13 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q4"  (ionSelect)="Validation4()"> 
+          <ion-radio-group [(ngModel)]="Resp.Q4" > 
             <ion-item>
-              <ion-label>Vrai</ion-label>
+              <ion-label text-wrap>Vrai</ion-label>
               <ion-radio slot="start" value="1"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Faux</ion-label>
+              <ion-label text-wrap>Faux</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -127,7 +127,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation5()">
         <h1>
           Question 5:
         </h1>
@@ -140,21 +140,21 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q5"  (ionSelect)="Validation5()">
+          <ion-radio-group [(ngModel)]="Resp.Q5">
             <ion-item>
-              <ion-label>Les protéines </ion-label>
+              <ion-label text-wrap>Les protéines </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Les glucides</ion-label>
+              <ion-label text-wrap>Les glucides</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Les glucides</ion-label>
+              <ion-label text-wrap> Les glucides</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Les sels minéraux (ions calcium, ions sodium, ions magnésium ...etc) et les oligo-éléments
+              <ion-label text-wrap>Les sels minéraux (ions calcium, ions sodium, ions magnésium ...etc) et les oligo-éléments
               </ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
@@ -168,7 +168,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation6()">
         <h1>
           Question 6:
         </h1>
@@ -180,21 +180,21 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q6"  (ionSelect)="Validation6()">
+          <ion-radio-group [(ngModel)]="Resp.Q6" >
             <ion-item>
-              <ion-label>Quand un individu a trop soif </ion-label>
+              <ion-label text-wrap>Quand un individu a trop soif </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Lorsque la consommation en eau de l’individu est insuffisante</ion-label>
+              <ion-label text-wrap>Lorsque la consommation en eau de l’individu est insuffisante</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Lorsque la consommation en eau de l’individu dépasse le besoin en eau de son corps</ion-label>
+              <ion-label text-wrap>Lorsque la consommation en eau de l’individu dépasse le besoin en eau de son corps</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Lorsque la consommation en eau est irrégulière
+              <ion-label text-wrap>Lorsque la consommation en eau est irrégulière
               </ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
@@ -204,7 +204,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation7()">
         <h1>
           Question 7:
         </h1>
@@ -217,21 +217,21 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q7"  (ionSelect)="Validation7()">
+          <ion-radio-group [(ngModel)]="Resp.Q7">
             <ion-item>
-              <ion-label>Votre âge </ion-label>
+              <ion-label text-wrap>Votre âge </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Votre poid, taille et vos activités sportives</ion-label>
+              <ion-label text-wrap>Votre poid, taille et vos activités sportives</ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Cela dépend des jours </ion-label>
+              <ion-label text-wrap>Cela dépend des jours </ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>On doit tous boire 1,5L d’eau
+              <ion-label text-wrap>On doit tous boire 1,5L d’eau
                 et manger 5 fruits et légumes par jour comme indiqué à la télé
               </ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
@@ -242,7 +242,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation8()">
         <h1>
           Question 8:
         </h1>
@@ -254,23 +254,23 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q8"  (ionSelect)="Validation8()">
+          <ion-radio-group [(ngModel)]="Resp.Q8" >
             <ion-item>
-              <ion-label>Oui, à cause du risque d'hydrocution
+              <ion-label text-wrap>Oui, à cause du risque d'hydrocution
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label> Oui, à cause de la digestion
+              <ion-label text-wrap> Oui, à cause de la digestion
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Cela dépend surtout de la température de l´eau </ion-label>
+              <ion-label text-wrap>Cela dépend surtout de la température de l´eau </ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Non, c'est une rumeur
+              <ion-label text-wrap>Non, c'est une rumeur
               </ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
@@ -280,7 +280,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation9()">
         <h1>
           Question 9:
         </h1>
@@ -292,19 +292,19 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q9"  (ionSelect)="Validation9()">
+          <ion-radio-group [(ngModel)]="Resp.Q9" >
             <ion-item>
-              <ion-label>A cause du développement de bactéries
+              <ion-label text-wrap>A cause du développement de bactéries
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>A cause du goût qui est dégradé
+              <ion-label text-wrap>A cause du goût qui est dégradé
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Parcequ'un produit recongelé ne se conserve plus aussi bien</ion-label>
+              <ion-label text-wrap>Parcequ'un produit recongelé ne se conserve plus aussi bien</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -313,7 +313,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation10()">
         <h1>
           Question 10:
         </h1>
@@ -325,23 +325,23 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q10"  (ionSelect)="Validation10()">
+          <ion-radio-group [(ngModel)]="Resp.Q10">
             <ion-item>
-              <ion-label>100 g
+              <ion-label text-wrap>100 g
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1 Kg
+              <ion-label text-wrap>1 Kg
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1,5 Kg</ion-label>
+              <ion-label text-wrap>1,5 Kg</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Il n'y a pas de pesticides dans nos aliments</ion-label>
+              <ion-label text-wrap>Il n'y a pas de pesticides dans nos aliments</ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -350,7 +350,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation11()">
         <h1>
           Question 11:
         </h1>
@@ -361,23 +361,23 @@
           Combien de bactéries avons-nous dans notre corps ? </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q11"  (ionSelect)="Validation11()">
+          <ion-radio-group [(ngModel)]="Resp.Q11">
             <ion-item>
-              <ion-label>Des centaines
+              <ion-label text-wrap>Des centaines
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Des milliers
+              <ion-label text-wrap>Des milliers
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Des millions</ion-label>
+              <ion-label text-wrap>Des millions</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Des milliards</ion-label>
+              <ion-label text-wrap>Des milliards</ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -386,7 +386,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation12()">
         <h1>
           Question 12:
         </h1>
@@ -399,23 +399,23 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q12"  (ionSelect)="Validation12()">
+          <ion-radio-group [(ngModel)]="Resp.Q12">
             <ion-item>
-              <ion-label>A cause de l´azote (principalement)
+              <ion-label text-wrap>A cause de l´azote (principalement)
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>A cause de l'oxygène
+              <ion-label text-wrap>A cause de l'oxygène
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>A cause de l'hydrogène</ion-label>
+              <ion-label text-wrap>A cause de l'hydrogène</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>A cause de l'ivresse des profondeurs</ion-label>
+              <ion-label text-wrap>A cause de l'ivresse des profondeurs</ion-label>
               <ion-radio slot="start" value="4"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -424,7 +424,7 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
+      <ion-content (click)="Validation13()">
         <h1>
           Question 13:
         </h1>
@@ -436,19 +436,19 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q13"  (ionSelect)="Validation13()">
+          <ion-radio-group [(ngModel)]="Resp.Q13">
             <ion-item>
-              <ion-label>Vrai
+              <ion-label text-wrap>Vrai
               </ion-label>
               <ion-radio slot="start" value="1 "></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>Faux
+              <ion-label text-wrap>Faux
               </ion-label>
               <ion-radio slot="start" value="2"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>ça dépend des variétés</ion-label>
+              <ion-label text-wrap>ça dépend des variétés</ion-label>
               <ion-radio slot="start" value="3"></ion-radio>
             </ion-item>
           </ion-radio-group>
@@ -460,7 +460,13 @@
     <ion-slide>
         <ion-content>
          <ion-img src="/assets/felicitations.png"></ion-img>
-        Score: {{ComptResultat}}
+        <h2>Votre Score: {{ComptResultat}}</h2>
+        <h3>Rang:</h3>
+        <ion-list>
+          <li>Sophie: 13</li>
+          <li>Marie: 13</li>
+          <li>Julia: 12</li>
+        </ion-list>
         </ion-content>
       </ion-slide>
   </ion-slides>
