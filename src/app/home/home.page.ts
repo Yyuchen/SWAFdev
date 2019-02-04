@@ -75,7 +75,7 @@ export class HomePage {
   // }
 
   conseille: String;
-  restBoire: Number;
+  restBoire: number;
   restBoireB: String;
   calculateObjectif() {
     var poids;
@@ -89,7 +89,13 @@ export class HomePage {
       temp = temp / 1000;
       this.objectif = temp;
       this.restBoire = this.objectif - this.varConso;
-      this.restBoireB = this.restBoire.toFixed(2);
+      if(this.restBoire>=0){
+        this.restBoireB = "Reste à boire: "+ this.restBoire.toFixed(2);
+      }else{
+        
+        this.restBoireB = "Dépasser d'objectif: "+Math.abs(this.restBoire).toFixed(2);
+      }
+      
       this.changeConseille();
     });
     this.storage.set('objectif', this.objectif);
