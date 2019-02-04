@@ -6,9 +6,7 @@ import { Storage } from '@ionic/storage';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getLocaleDateFormat } from '@angular/common';
-
-
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,8 +16,6 @@ import { getLocaleDateFormat } from '@angular/common';
 //test git
 export class HomePage {
   @ViewChild('lineChart') lineChart;
-
-
 
   serviceUUID = "71103da0-91eb-11e5-aefa-0002a5d5c51b";
   initializeResult: object;
@@ -37,7 +33,7 @@ export class HomePage {
   pointClicked = null;
   objectif = null;
   username = null;
-
+ colect=null;
   //param;
   constructor(
     private bluetoothle: BluetoothLE,
@@ -45,42 +41,42 @@ export class HomePage {
     public navCtrl: NavController,
     private storage: Storage,
     private router: Router,
-
+    public alertController: AlertController,
 
     public modalController: ModalController,
     private route: ActivatedRoute) {
-
+      this.presentAlertCheckbox();
     this.calculateObjectif();
-    this.platform.ready().then((readySource) => {
+    this.colect=true;
+    // this.platform.ready().then((readySource) => {
+    //   console.log('Platform ready from: ', readySource);
+    //   this.bluetoothle.initialize().then(ble => {
+    //     console.log('ble: ', ble.status) // logs 'enabled'
+    //   })
 
-      console.log('Platform ready from: ', readySource);
-      this.bluetoothle.initialize().then(ble => {
-        console.log('ble: ', ble.status) // logs 'enabled'
-      })
-
-      if (bluetoothle.isEnabled()) {
-        // bluetoothle.connect()
-
-        console.log("actived");
-
-      } else console.log("not active");
-
-    })
+    //   if (bluetoothle.isEnabled()) {
+    //     // bluetoothle.connect()
+    //     console.log("actived");
+    //   } else console.log("not active");
+    // })
     this.storage.get('username').then((val) => {
       this.username = val;
     });
   }
 
+  varConso = 0.5;
+  //  getConsomation() {
+  //   this.storage.get('selectedDrinks').then((val) => {
+  //     this.consomation.autre = val;
+  //     // console.log("home length: ", this.consomation.autre.length);
+  //     // console.log("home conso: ", this.consomation.autre);
+  //     //  console.log("home varConso: ", this.varConso);
+  //   });
+  // }
 
-  setConsomation() {
-    this.storage.get('selectedDrinks').then((val) => {
-      this.consomation.autre = val;
-      console.log("home var: ", val);
-      console.log("home conso: ", this.consomation.autre);
-    });
-
-  }
-
+  conseille: String;
+  restBoire: Number;
+  restBoireB: String;
   calculateObjectif() {
     var poids;
     this.storage.get('poids').then((val) => {
@@ -92,6 +88,9 @@ export class HomePage {
       temp = temp - 1000;
       temp = temp / 1000;
       this.objectif = temp;
+      this.restBoire = this.objectif - this.varConso;
+      this.restBoireB = this.restBoire.toFixed(2);
+      this.changeConseille();
     });
     this.storage.set('objectif', this.objectif);
   }
@@ -99,20 +98,18 @@ export class HomePage {
   //
   // Graphique
   //
-
-
-
   public lineChartData: Array<any> = [
     {
-      data: [7, 65, 59, 80, 81, 56, 55, 40, 5, 10, 3, 40], label: "Litres", pointRadius: 10,
+      data: [47.1, 9.9], label: "Litres", pointRadius: 10,
       pointHoverRadius: 15
     }
-    //  {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
-    //  pointHoverRadius: 15}
-    //  {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C',pointRadius: 10,
-    //  pointHoverRadius: 15}
   ];
+
+
+
   public lineChartLabels: Array<any> = ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
   public lineChartOptions: any = {
     responsive: true
   };
@@ -127,44 +124,23 @@ export class HomePage {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
 
     }
-    //  { // dark grey
-    //    backgroundColor: 'rgba(77,83,96,0.2)',
-    //    borderColor: 'rgba(77,83,96,1)',
-    //    pointBackgroundColor: 'rgba(77,83,96,1)',
-    //    pointBorderColor: '#fff',
-    //    pointHoverBackgroundColor: '#fff',
-    //    pointHoverBorderColor: 'rgba(77,83,96,1)'
-    //  },
-    //  { // grey
-    //    backgroundColor: 'rgba(148,159,177,0.2)',
-    //    borderColor: 'rgba(148,159,177,1)',
-    //    pointBackgroundColor: 'rgba(148,159,177,1)',
-    //    pointBorderColor: '#fff',
-    //    pointHoverBackgroundColor: '#fff',
-    //    pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    //  }
   ];
   public lineChartLegend: boolean = false;
   public lineChartType: string = 'line';
-
-
-  //  public randomize():void {
-  //    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-  //    for (let i = 0; i < this.lineChartData.length; i++) {
-  //      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-  //      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-  //        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-  //      }
-  //    }
-  //  
-  //  }
-
+  public barChartData: Array<any> = [
+    {
+      //il faut remplacer par array du donnée du verre!
+      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], pointRadius: 10,
+      pointHoverRadius: 15
+    }
+  ];
   // events
   public chartClicked(e: any): void {
     this.storage.set('moisClicked', e.active[0]._index);
     this.storage.get('moisClicked').then((val) => {
       this.moisClicked = val;
       this.generateLabel(this.moisClicked);
+      this.barChartData = this.conditionData(this.moisClicked);
     });
   }
 
@@ -181,26 +157,36 @@ export class HomePage {
 
   }
   moisClicked = null;
+  //label temporaire
+  barChartLabels: Array<any> = ['01/02','02/02','03/02','04/02','05/02','06/02','07/02','08/02','09/02',
+  '10/02','11/02','12/02','13/02','14/02','15/02','16/02','17/02','18/02','19/02','20/02','21/02','22/02',
+  '23/02','24/02','25/02','26/02','27/02','28/02'];
 
+  public conditionData(mois): any {
+    mois = mois + 1;
+    let _barChartData: Array<any>;
+    if (mois == '1') {
+      _barChartData = [
+        {
+          //il faut remplacer par array du donnée du verre!
+          data: [1, 1.5, 0.5, 1.3, 1.7, 1.8, 1.7, 1.7, 1.9, 1.2, 1.3, 0.8, 0.9, 1, 1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6, 1.5, 1.2], pointRadius: 10,
+          pointHoverRadius: 15
+        }
+      ];
 
-
-
-  barChartLabels: Array<any>;
-
-  public barChartData: Array<any> = [
-    {
-      //il faut remplacer par array du donnée du verre!
-      data: [7, 65, 59, 80, 81, 56, 55, 40, 5, 10, 3, 40], pointRadius: 10,
-      pointHoverRadius: 15
+    } else if (mois == '2') {
+      _barChartData = [
+        {
+          //il faut remplacer par array du donnée du verre!
+          data: [1, 1.5, 1.7, 1.2, 2, 2, this.varConso], pointRadius: 10,
+          pointHoverRadius: 15
+        }
+      ];
     }
-    //  {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B',pointRadius: 10,
-    //  pointHoverRadius: 15}
-    //  {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C',pointRadius: 10,
-    //  pointHoverRadius: 15}
-  ];
+    return _barChartData;
+  }
 
   public generateLabel(mois): any {
-
     let _barChartLabels = { data: new Array(31), label: this.monthName[mois] };
     let month = mois + 1;
     if (month < 10) {
@@ -233,7 +219,6 @@ export class HomePage {
 
   public monthName: Array<any> = ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aut', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  //public barChartLabels:Array<any> = ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil','Aut','Sep','Oct','Nov','Dec'];
   public barChartOptions: any = {
     responsive: true
   };
@@ -249,8 +234,84 @@ export class HomePage {
   ];
   public barChartLegend: boolean = false;
   public barChartType: string = 'bar';
+  public changeBarChart() {
+    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+  }
 
 
+  changeConseille() {
+    if (this.varConso < this.objectif - 0.15) {
+      this.conseille = "Pour l'instant, vous n'avez pas atteint votre objectif journalier. N'ésitez pas à boire plus d'eau. Si vous n'avez pas très soif, vous pouvez par exemple prendre un jus de fruit ou bien en manger un, cela apporte environ 0.2cl d'eau dans votre corps";
+    } else if (this.varConso > this.objectif + 0.15) {
+      this.conseille = "Super, vous avez atteint votre objectif journalier. Mais attention à ne pas trop boire. Si vous avez vraiment soif, nous vous conseillons simplement de prendre un fruit ou un yaourt. Mais pensez à ne pas tomber dans la surhydratation.";
+    } else {
+      this.conseille = "Super, vous avez atteint votre objectif journalier! Bravo! ne vous inquietez pas, vous pouvez toujours vous hydrater en prenant un yaourt, du thé ou même un jus de fruit. Vour pouvez aussi boire un verre d'eau, ça fait pas de mal."
+    }
+  }
 
+  async presentAlertCheckbox() {
+    const alert = await this.alertController.create({
+      header: 'Avez-vous bu ou mangé d\'autres choses ?',
+      inputs: [
+        {
+          name: 'the 33cl',
+          type: 'checkbox',
+          label: 'thé',
+          value: '0.20', // la valeur convertir en tant d'eau
+        },
+        {
+          name: 'fruit',
+          type: 'checkbox',
+          label: 'fruit',
+          value: '0.14', // la valeur convertir en tant d'eau
+        },
+
+        {
+          name: 'jus',
+          type: 'checkbox',
+          label: 'jus 33cl',
+          value: '0.10',
+        },
+
+        {
+          name: 'smooth',
+          type: 'checkbox',
+          label: 'smooth 33cl',
+          value: '0.12',
+        },
+
+        {
+          name: 'b_énergétique',
+          type: 'checkbox',
+          label: 'boisson énergétique 33cl',
+          value: '0.08',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Non',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.colect=false;
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Oui',
+          role:"valide",
+          handler: data => {
+            //data = value2,value3
+            this.colect=false;
+            this.consomation.autre=data;
+            for (let i = 0; i < this.consomation.autre.length; i++) {
+            this.varConso = this.varConso + parseFloat(this.consomation.autre[i]);
+          }
+          }
+        }
+      ]
+    });
+
+     await alert.present();
+  }
 
 }

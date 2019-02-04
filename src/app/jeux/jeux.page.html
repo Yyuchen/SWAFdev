@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Jeux</ion-title>
+    <ion-title>Jungle SWAF</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,22 +20,22 @@
         </h5>
          
         <ion-list>
-          <ion-radio-group [(ngModel)]="Resp.Q1"  (ionSelect)="Validation1()" >
+          <ion-radio-group [(ngModel)]="Resp.Q1"   >
             <ion-item>
               <ion-label>500 mL</ion-label>
-              <ion-radio slot="start" value="1"></ion-radio>
+              <ion-radio slot="start" value="1" (ionSelect)="Validation1()"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>1.50 L</ion-label>
-              <ion-radio slot="start" value="2"></ion-radio>
+              <ion-radio slot="start" value="2" (ionSelect)="Validation1()"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>1 L</ion-label>
-              <ion-radio slot="start" value="3"></ion-radio>
+              <ion-radio slot="start" value="3"(ionSelect)="Validation1()"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>25 cL</ion-label>
-              <ion-radio slot="start" value="4"></ion-radio>
+              <ion-radio slot="start" value="4"(ionSelect)="Validation1()"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-list>
@@ -52,8 +52,7 @@
             <ion-icon name="arrow-dropright" style="zoom:5;" ></ion-icon>
     </ion-fab>
     <h5>
-          Combien de Litres d’eau les aliments
-          que nous mangeons apportent à notre corps ?
+      L’eau apporté par les aliments est-elle suffisante ? 
         </h5>
          
         <ion-list>
@@ -461,7 +460,7 @@
     <ion-slide>
         <ion-content>
          <ion-img src="/assets/felicitations.png"></ion-img>
-        
+        Score: {{ComptResultat}}
         </ion-content>
       </ion-slide>
   </ion-slides>

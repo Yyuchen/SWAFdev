@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (click)="calculateObjectif()">
   <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
       <ion-refresher-content>
         </ion-refresher-content>
@@ -18,7 +18,7 @@
           <ion-icon name="refresh" (click)="calculateObjectif()"></ion-icon>
       </ion-card-title>
       <ion-card-title>
-        Reste à boire: 1L
+        Reste à boire: {{restBoireB}} L
       </ion-card-title>
 
     </ion-card-header>
@@ -40,7 +40,7 @@
       <ion-card-title> &nbsp;Consommation Journalière</ion-card-title>
       <ion-card-content>
       <div style="display: block;">
-          <ion-badge (click)="changeChart()">Type: {{barChartType}}</ion-badge>
+          <ion-badge (click)="changeBarChart()">Type: {{barChartType}}</ion-badge>
         <canvas baseChart width="100" height="100" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
           [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" 
           (chartClick)="chartClicked($event)"></canvas>
@@ -52,7 +52,7 @@
       <ion-card-title>
         &nbsp; Conseil:</ion-card-title>
   <ion-card-content>
-    <h4> {{username}}, nous constatons grâce à votre suivi que vous buvez en moyenne 3,5L d'eau par jour alors que votre objectif est de {{objectif}}. Ne vous inquietez pas, ce n'est pas grave, je vous conseil simplement de diminuer un peu votre consommation en utilisant les rappels lumineux de SWAF et de limiter au maximum de boire en dehors. </h4>
+    <h4> {{username}}, {{conseille}} </h4>
   </ion-card-content>
 </ion-card>
  
