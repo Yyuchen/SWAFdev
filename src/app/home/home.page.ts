@@ -136,7 +136,7 @@ export class HomePage {
   public barChartData: Array<any> = [
     {
       //il faut remplacer par array du donnée du verre!
-      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], pointRadius: 10,
+      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], pointRadius: 5,
       pointHoverRadius: 15
     }
   ];
@@ -175,7 +175,9 @@ export class HomePage {
       _barChartData = [
         {
           //il faut remplacer par array du donnée du verre!
-          data: [1, 1.5, 0.5, 1.3, 1.7, 1.8, 1.7, 1.7, 1.9, 1.2, 1.3, 0.8, 0.9, 1, 1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6, 1.5, 1.2], pointRadius: 10,
+          data: [1, 1.5, 0.5, 1.3, 1.7, 1.8, 1.7, 1.7, 1.9, 1.2, 1.3, 0.8, 0.9, 1,
+             1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6, 
+             1.5, 1.2], pointRadius: 5,
           pointHoverRadius: 15
         }
       ];
