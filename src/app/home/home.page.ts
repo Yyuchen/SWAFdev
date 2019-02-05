@@ -71,6 +71,9 @@ export class HomePage {
     });
   }
   varConso = 0.5;
+  boire(){
+     this.varConso=this.varConso+Math.random();
+  }
   //  getConsomation() {
   //   this.storage.get('selectedDrinks').then((val) => {
   //     this.consomation.autre = val;
@@ -99,7 +102,7 @@ export class HomePage {
         this.restBoireB = "Reste à boire: "+ this.restBoire.toFixed(2);
       }else{
         
-        this.restBoireB = "Dépasser d'objectif: "+Math.abs(this.restBoire).toFixed(2);
+        this.restBoireB = "Vous avez dépassé de: "+Math.abs(this.restBoire).toFixed(2);
       }
       
       this.changeConseille();
@@ -251,7 +254,6 @@ export class HomePage {
   public changeBarChart() {
     this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
   }
-
 
   changeConseille() {
     if (this.varConso < this.objectif - 0.15) {
