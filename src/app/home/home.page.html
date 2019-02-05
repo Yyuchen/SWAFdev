@@ -42,7 +42,7 @@
           <ion-badge (click)="changeBarChart()">Type: {{barChartType}}</ion-badge>
         <canvas baseChart width="100" height="100" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
           [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" 
-          (chartClick)="chartClicked($event)"></canvas>
+         ></canvas>
           </div>
           <div id="chartDiv"></div>
         </ion-card-content>
@@ -50,7 +50,7 @@
   <ion-card>
       <ion-card-title>
         &nbsp; Conseil:</ion-card-title>
-  <ion-card-content>
+  <ion-card-content (click)="getUsername()">
     <h4> {{username}}, {{conseille}} </h4>
   </ion-card-content>
 </ion-card>

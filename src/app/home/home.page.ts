@@ -62,8 +62,14 @@ export class HomePage {
     this.storage.get('username').then((val) => {
       this.username = val;
     });
+
   }
 
+  getUsername(){
+    this.storage.get('username').then((val) => {
+      this.username = val;
+    });
+  }
   varConso = 0.5;
   //  getConsomation() {
   //   this.storage.get('selectedDrinks').then((val) => {
@@ -106,7 +112,7 @@ export class HomePage {
   //
   public lineChartData: Array<any> = [
     {
-      data: [47.1, 9.9], label: "Litres", pointRadius: 10,
+      data: [47.1, 9.8], label: "Litres", pointRadius: 10,
       pointHoverRadius: 15
     }
   ];
@@ -136,7 +142,7 @@ export class HomePage {
   public barChartData: Array<any> = [
     {
       //il faut remplacer par array du donnée du verre!
-      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], pointRadius: 5,
+      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], label: "Litres",pointRadius: 5,
       pointHoverRadius: 15
     }
   ];
@@ -177,7 +183,7 @@ export class HomePage {
           //il faut remplacer par array du donnée du verre!
           data: [1, 1.5, 0.5, 1.3, 1.7, 1.8, 1.7, 1.7, 1.9, 1.2, 1.3, 0.8, 0.9, 1,
              1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6, 
-             1.5, 1.2], pointRadius: 5,
+             1.5, 1.2], pointRadius: 5,label: "Litres",
           pointHoverRadius: 15
         }
       ];
@@ -186,7 +192,7 @@ export class HomePage {
       _barChartData = [
         {
           //il faut remplacer par array du donnée du verre!
-          data: [1, 1.5, 1.7, 1.2, 2, 2, this.varConso], pointRadius: 10,
+          data: [1, 1.5, 1.7, 1.2, 2, 1.9, this.varConso], pointRadius: 5,label: "Litres",
           pointHoverRadius: 15
         }
       ];

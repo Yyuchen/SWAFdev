@@ -37,7 +37,7 @@
 
       <ion-item>
         <ion-label>Date de naissance</ion-label>
-        <ion-datetime [(ngModel)]="dataNaissance" display-format="MM DD YYYY" placeholder="MM/DD/YYYY" (ionChange)="setNaissance()"></ion-datetime>
+        <ion-datetime [(ngModel)]="dataNaissance" display-format="DD MM YYYY" placeholder="DD/MM/YYYY" (ionChange)="setNaissance()"></ion-datetime>
       </ion-item>
 
       <ion-item>
@@ -67,12 +67,12 @@
           <ion-select-option value="maraton">Maraton</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-label>Frequence(semaine)</ion-label>
+      <ion-label>&nbsp;Frequence(semaine)</ion-label>
       <ion-item>
         <ion-range pin="true" min="0" max="10" color="primary"  [(ngModel)]="sportFrequence" (ngModelChange)="setSpoFrenq()"></ion-range>
         <ion-badge>{{sportFrequence}}</ion-badge>
       </ion-item>
-      <ion-label>Duree(min)</ion-label>
+      <ion-label>&nbsp;Duree(min)</ion-label>
       <ion-item>
         <ion-range pin="true" min="0" max="180" color="primary"  [(ngModel)]="dureeSprot" (ngModelChange)="setSpoDuree()"></ion-range>
         <ion-badge>{{dureeSprot}}</ion-badge>
