@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
-import { ChartsModule } from 'ng2-charts/charts/charts';
+import { ConnectPage } from './connect.page';
+import {Deeplinks} from '@ionic-native/deeplinks/ngx';
 
 
 @NgModule({
@@ -12,10 +12,8 @@ import { ChartsModule } from 'ng2-charts/charts/charts';
     IonicModule,
     CommonModule,
     FormsModule,
-    ChartsModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    RouterModule.forChild([{ path: '', component: ConnectPage }])
   ],
-  declarations: [HomePage],
-  providers:[]
+  declarations: [ConnectPage]
 })
-export class HomePageModule {}
+export class ConnectPageModule {}

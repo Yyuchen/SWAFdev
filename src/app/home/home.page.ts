@@ -1,5 +1,4 @@
-import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx';
-import { Platform, Refresher } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -7,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { getLocaleDateFormat } from '@angular/common';
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -33,10 +33,9 @@ export class HomePage {
   pointClicked = null;
   objectif = null;
   username = null;
- colect=null;
+  colect = null;
   //param;
   constructor(
-    private bluetoothle: BluetoothLE,
     private platform: Platform,
     public navCtrl: NavController,
     private storage: Storage,
@@ -45,9 +44,10 @@ export class HomePage {
 
     public modalController: ModalController,
     private route: ActivatedRoute) {
-      this.presentAlertCheckbox();
+    this.presentAlertCheckbox();
     this.calculateObjectif();
-    this.colect=true;
+    this.colect = true;
+
     // this.platform.ready().then((readySource) => {
     //   console.log('Platform ready from: ', readySource);
     //   this.bluetoothle.initialize().then(ble => {
@@ -64,15 +64,17 @@ export class HomePage {
     });
 
   }
-
-  getUsername(){
+  sommeFev=9.3;
+  getUsername() {
     this.storage.get('username').then((val) => {
       this.username = val;
     });
   }
   varConso = 0.5;
-  boire(){
-     this.varConso=this.varConso+Math.random();
+  boire() {
+    this.varConso = this.varConso + Math.random();
+    this.sommeFev=9.3+this.varConso;
+    this.lineChartData=this.varideLineGraph(this.sommeFev)
   }
   //  getConsomation() {
   //   this.storage.get('selectedDrinks').then((val) => {
@@ -98,14 +100,15 @@ export class HomePage {
       temp = temp / 1000;
       this.objectif = temp;
       this.restBoire = this.objectif - this.varConso;
-      if(this.restBoire>=0){
-        this.restBoireB = "Reste à boire: "+ this.restBoire.toFixed(2);
-      }else{
-        
-        this.restBoireB = "Vous avez dépassé de: "+Math.abs(this.restBoire).toFixed(2);
+      if (this.restBoire >= 0) {
+        this.restBoireB = "Reste à boire: " + this.restBoire.toFixed(2);
+      } else {
+
+        this.restBoireB = "Vous avez dépassé de: " + Math.abs(this.restBoire).toFixed(2);
       }
-      
+
       this.changeConseille();
+      
     });
     this.storage.set('objectif', this.objectif);
   }
@@ -113,12 +116,25 @@ export class HomePage {
   //
   // Graphique
   //
+
   public lineChartData: Array<any> = [
     {
-      data: [47.1, 9.8], label: "Litres", pointRadius: 10,
+      data: [47.1, 9.3], label: "Litres", pointRadius: 10,
       pointHoverRadius: 15
     }
   ];
+
+  varideLineGraph(valeur):any{
+    let _linegraph: Array<any>;
+    _linegraph = [
+        {
+          //il faut remplacer par array du donnée du verre!
+          data: [47.1, valeur], pointRadius: 5, label: "Litres",
+          pointHoverRadius: 15
+        }
+      ];
+      return _linegraph;
+  }
 
 
 
@@ -145,7 +161,7 @@ export class HomePage {
   public barChartData: Array<any> = [
     {
       //il faut remplacer par array du donnée du verre!
-      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], label: "Litres",pointRadius: 5,
+      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.2], label: "Litres", pointRadius: 5,
       pointHoverRadius: 15
     }
   ];
@@ -156,6 +172,7 @@ export class HomePage {
       this.moisClicked = val;
       this.generateLabel(this.moisClicked);
       this.barChartData = this.conditionData(this.moisClicked);
+      
     });
   }
 
@@ -173,9 +190,9 @@ export class HomePage {
   }
   moisClicked = null;
   //label temporaire
-  barChartLabels: Array<any> = ['01/02','02/02','03/02','04/02','05/02','06/02','07/02','08/02','09/02',
-  '10/02','11/02','12/02','13/02','14/02','15/02','16/02','17/02','18/02','19/02','20/02','21/02','22/02',
-  '23/02','24/02','25/02','26/02','27/02','28/02'];
+  barChartLabels: Array<any> = ['01/02', '02/02', '03/02', '04/02', '05/02', '06/02', '07/02', '08/02', '09/02',
+    '10/02', '11/02', '12/02', '13/02', '14/02', '15/02', '16/02', '17/02', '18/02', '19/02', '20/02', '21/02', '22/02',
+    '23/02', '24/02', '25/02', '26/02', '27/02', '28/02'];
 
   public conditionData(mois): any {
     mois = mois + 1;
@@ -185,8 +202,8 @@ export class HomePage {
         {
           //il faut remplacer par array du donnée du verre!
           data: [1, 1.5, 0.5, 1.3, 1.7, 1.8, 1.7, 1.7, 1.9, 1.2, 1.3, 0.8, 0.9, 1,
-             1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6, 
-             1.5, 1.2], pointRadius: 5,label: "Litres",
+            1, 1.3, 2, 2, 3, 1.1, 1.7, 1.6, 1.5, 1.4, 1.2, 1.6, 1.4, 1.7, 2, 1.6,
+            1.5, 1.2], pointRadius: 5, label: "Litres",
           pointHoverRadius: 15
         }
       ];
@@ -195,7 +212,7 @@ export class HomePage {
       _barChartData = [
         {
           //il faut remplacer par array du donnée du verre!
-          data: [1, 1.5, 1.7, 1.2, 2, 1.9, this.varConso], pointRadius: 5,label: "Litres",
+          data: [1, 1.5, 1.7, 1.2, 2, 1.9, this.varConso], pointRadius: 5, label: "Litres",
           pointHoverRadius: 15
         }
       ];
@@ -309,26 +326,26 @@ export class HomePage {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            this.colect=false;
+            this.colect = false;
             console.log('Confirm Cancel');
           }
         }, {
           text: 'Oui',
-          role:"valide",
+          role: "valide",
           handler: data => {
             //data = value2,value3
-            this.colect=false;
-            this.consomation.autre=data;
+            this.colect = false;
+            this.consomation.autre = data;
             for (let i = 0; i < this.consomation.autre.length; i++) {
-            this.varConso = this.varConso + parseFloat(this.consomation.autre[i]);
-          }
-          this.calculateObjectif();
+              this.varConso = this.varConso + parseFloat(this.consomation.autre[i]);
+            }
+            this.calculateObjectif();
           }
         }
       ]
     });
 
-     await alert.present();
+    await alert.present();
   }
 
 }

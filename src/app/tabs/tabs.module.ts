@@ -12,6 +12,9 @@ import { JeuxPageModule } from '../jeux/jeux.module';
 import { HomePageModule } from '../home/home.module';
 import { ArticlePageModule } from '../article/article.module';
 import { from } from 'rxjs';
+import {BlePageModule} from '../ble/ble.module';
+import {ConnectPageModule} from '../connect/connect.module';
+
 
 @NgModule({
   imports: [
@@ -22,7 +25,9 @@ import { from } from 'rxjs';
     HomePageModule,
     JeuxPageModule,
     ProfilePageModule,
-    ArticlePageModule
+    ArticlePageModule,
+    BlePageModule,
+    ConnectPageModule
   ],
   declarations: [TabsPage]
 })

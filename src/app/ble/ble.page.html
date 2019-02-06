@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Connexion
+        </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <!-- <ion-buttons (click)="scan()" slot="end" [(ngModel)]="pepperoni">    
+    Scan
+    </ion-buttons> -->
+        <ion-label>Bluetooth</ion-label>
+        <ion-toggle [(ngModel)]="connection" (ionChange)="scan()">
+        </ion-toggle>
+    </ion-item>
+    <ion-card-content>
+        <ion-list>
+            <ion-label>APPAREIL DISPONIBLES</ion-label>
+            <ion-item *ngFor="let device of devices" (click)="connectDevice(device)">
+                <!--<h1><a href="/tabs/(connect:connect)">Click Me</a></h1>-->
+                <!--<h1><a href="/(connect:connect)">Click Me</a></h1>-->
+                <h2>{{ device.name || 'Unnamed' }}</h2>
+                <p>{{ device.id }}</p>
+                <p>RSSI: {{ device.rssi }}</p>
+            </ion-item>
+        </ion-list>
+   </ion-card-content>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <p>{{ statusMessage }}</p>
+    </ion-toolbar>
+
+</ion-footer>

@@ -10,17 +10,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-import { BluetoothLE } from '@ionic-native/bluetooth-le/ngx'
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import {BLE} from '@ionic-native/ble/ngx';
+import {Toast} from '@ionic-native/toast/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule,  
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
     IonicStorageModule.forRoot(),
     HttpClientModule
   ],
@@ -30,10 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    BluetoothLE,
+    BLE,
+    Toast
   ],
   bootstrap: [AppComponent]
-  
+
 })
 
 
