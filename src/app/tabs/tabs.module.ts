@@ -15,6 +15,7 @@ import { from } from 'rxjs';
 import {BlePageModule} from '../ble/ble.module';
 import {ConnectPageModule} from '../connect/connect.module';
 
+
 @NgModule({
   imports: [
     IonicModule,
