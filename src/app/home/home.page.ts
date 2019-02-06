@@ -71,6 +71,9 @@ export class HomePage {
     });
   }
   varConso = 0.5;
+  initia(){
+    this.varConso = 0.5;
+  }
   boire() {
     this.varConso = this.varConso + Math.random();
     this.sommeFev=9.3+this.varConso;
@@ -161,7 +164,7 @@ export class HomePage {
   public barChartData: Array<any> = [
     {
       //il faut remplacer par array du donnée du verre!
-      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.2], label: "Litres", pointRadius: 5,
+      data: [1, 1.5, 1.7, 1.2, 2, 2, 0.5], label: "Litres", pointRadius: 5,
       pointHoverRadius: 15
     }
   ];

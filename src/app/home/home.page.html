@@ -24,7 +24,7 @@
   </ion-card>
     <ion-card>
         <ion-card-title>
-          &nbsp; Consommation Mensuel :</ion-card-title>
+            &nbsp;&nbsp; Consommation Mensuel :</ion-card-title>
     <ion-card-content>
         <ion-badge (click)="changeChart()">Type: {{lineChartType}}</ion-badge>
       
@@ -36,7 +36,7 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-      <ion-card-title> &nbsp;Consommation Journalière</ion-card-title>
+      <ion-card-title> &nbsp;&nbsp;&nbsp;Consommation Journalière</ion-card-title>
       <ion-card-content>
       <div style="display: block;">
           <ion-badge (click)="changeBarChart()">Type: {{barChartType}}</ion-badge>
@@ -55,9 +55,9 @@
   </ion-card-content>
 </ion-card>
  
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="initia()">
       <ion-fab-button>
-          <ion-icon name="battery-full"></ion-icon>
+          <ion-icon name="battery-full" ></ion-icon>
       </ion-fab-button>
     </ion-fab>
     
