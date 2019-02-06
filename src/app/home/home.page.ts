@@ -73,6 +73,8 @@ export class HomePage {
   varConso = 0.5;
   initia(){
     this.varConso = 0.5;
+    this.sommeFev=9.3+this.varConso;
+    this.lineChartData=this.varideLineGraph(this.sommeFev)
   }
   boire() {
     this.varConso = this.varConso + Math.random();
