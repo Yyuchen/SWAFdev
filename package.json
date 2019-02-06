@@ -39,6 +39,7 @@
     "chart.js": "^2.7.3",
     "cordova-android": "7.1.4",
     "cordova-browser": "5.0.4",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-ble-central": "1.2.2",
     "cordova-plugin-bluetooth-serial": "^0.4.7",
     "cordova-plugin-bluetoothle": "^4.5.1",
@@ -123,7 +124,8 @@
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }
