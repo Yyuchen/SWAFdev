@@ -188,7 +188,7 @@ export class ProfilePage  implements OnInit {
 
   async presentPrompt() {
     const  alert = await this.alertController.create({
-      header: 'Prompt!',
+      header: 'Votre nom?',
       inputs: [
         {
           name: 'username',
